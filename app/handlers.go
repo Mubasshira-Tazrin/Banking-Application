@@ -28,8 +28,3 @@ func getAllCustomers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(customers)
     }
 }
-
-// Handler function for the root route
-func rootHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the root!")
-}

@@ -1,12 +1,9 @@
 package main
 
-import(
+import (
 	"BankingApp/app"
 )
-
-
 
 func main() {
 	app.Start()
 }
-

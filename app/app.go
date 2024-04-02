@@ -1,18 +1,21 @@
 package app
-import(
+
+import (
 	"fmt"
-     "log"
+	"log"
 	"net/http"
+	"github.com/gorilla/mux"
 )
-func Start(){
+
+func Start() {
+	//mux := http.NewServeMux()
+	router := mux.NewRouter()
+	
 	fmt.Println("Server is listening on port 8082...")
 
-	http.HandleFunc("/greet", greet)
-	http.HandleFunc("/customers", getAllCustomers)
-
-	// Register the handler function for the root URL
-	http.HandleFunc("/", rootHandler)
+	router.HandleFunc("/greet", greet)
+	router .HandleFunc("/customers", getAllCustomers)
 
 	// Start the HTTP server on port 8081
-	log.Fatal(http.ListenAndServe("localhost:8082", nil))
+	log.Fatal(http.ListenAndServe("localhost:8082", router))
 }
